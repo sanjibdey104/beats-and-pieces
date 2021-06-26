@@ -17,7 +17,7 @@
         <div class="music-container">
 
             <section class="music-info">
-                <p class="title">Happy Clappy Ukelele</p>
+                <p class="title"></p>
                 <div class="progress-bar">
     
                 </div>
@@ -25,18 +25,17 @@
     
             <section class="music-controls">
                 <div class="music-art">
-                    <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="cover art">
-
-                    <!-- https://images.unsplash.com/photo-1531489956451-20957fab52f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80 -->
-                    <!-- https://images.unsplash.com/photo-1533481051286-d6396b74c877?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=682&q=80 -->
+                    <img class="cover-image" alt="cover art">
                 </div>
                 <div class="controls">
-                    <i class="fas fa-backward previous"></i>
-                    <i class="fas fa-play play"></i>
-                    <i class="fas fa-pause pause"></i>
-                    <i class="fas fa-forward next"></i>
+                    <button class="previous-btn"><i class="fas fa-backward"></i></button>
+                    <button class="play-btn show"><i class="fas fa-play"></i></button>
+                    <button class="pause-btn"><i class="fas fa-pause"></i></button>
+                    <button class="next-btn"><i class="fas fa-forward"></i></button>
                 </div>
             </section>
+
+            <audio class="music-track"></audio>
     
         </div>
     </div>
