@@ -2,6 +2,13 @@ const musicInfo = document.querySelector('.music-info');
 const musicArt = document.querySelector('.music-art'); 
 const coverImage = document.querySelector('.cover-image'); 
 const trackTitle = document.querySelector('.title');
+const durTimeDisplay = document.querySelector('.dur-time-display');
+const curTimeDisplay = document.querySelector('.cur-time-display');
+const progressBar = document.querySelector('.progress-bar');
+const bar = document.querySelector('.bar');
+
+console.log(progressBar)
+progressBar.addEventListener('click', () => console.log('hello'))
 
 const playButton = document.querySelector('.play-btn');
 const pauseButton = document.querySelector('.pause-btn');
@@ -32,7 +39,9 @@ let i=0;
 trackTitle.innerHTML = playlist[i].title;
 coverImage.setAttribute('src', playlist[i].cover);
 audio.setAttribute('src', playlist[i].track);
-
+audio.onloadedmetadata = function() {
+    durTimeDisplay.innerHTML = (audio.duration/60).toFixed(2);
+};
 
 
 playButton.addEventListener('click', () => {
@@ -65,15 +74,16 @@ previousButton.addEventListener('click', () => {
 })
 
 const playTrack = (i) => {
-
     let {title,cover,track} = playlist[i];
-
     audio.setAttribute('src', track);
     audio.play();
     switchState('play');
 
     coverImage.setAttribute('src', cover);
     trackTitle.innerHTML = title;
+    audio.onloadedmetadata = function() {
+        durationDisplay.innerHTML = Math.floor(audio.duration/60);
+    };
 }
 
 const switchState = (state) => {
@@ -92,3 +102,18 @@ const switchState = (state) => {
         playButton.classList.replace('hide','show')
     }
 }
+
+const updateProgress = (e) => {
+    const {duration, currentTime} = e.srcElement;
+    const percent = ((currentTime/duration)*100).toFixed(2);
+    bar.style.width = `${percent}%`;
+}
+
+const setCurTimeDisplay = (e) => {
+    const {duration, currentTime} = e.srcElement;
+    let min = Math.floor(currentTime/60);
+    curTimeDisplay.innerHTML = `${min}:`;
+}
+
+audio.addEventListener('timeupdate', updateProgress);
+audio.addEventListener('timeupdate', setCurTimeDisplay);

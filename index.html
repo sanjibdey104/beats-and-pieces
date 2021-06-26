@@ -14,12 +14,21 @@
 <body>
 
     <div class="container">
+
+        <div class="player-name">
+            Beats-n-Pieces
+        </div>
+
         <div class="music-container">
 
             <section class="music-info">
                 <p class="title"></p>
-                <div class="progress-bar">
-    
+                <div class="progress-indicator">
+                    <div class="cur-time-display"></div>
+                    <div class="progress-bar">
+                        <div class="bar"></div>
+                    </div>
+                    <div class="dur-time-display"></div>
                 </div>
             </section>
     
@@ -35,8 +44,7 @@
                 </div>
             </section>
 
-            <audio class="music-track"></audio>
-    
+            <audio class="music-track" src="./music/art-of-silence.mp3" preload="metadata"></audio>
         </div>
     </div>
     
