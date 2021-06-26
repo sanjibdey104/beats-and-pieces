@@ -1,8 +1,8 @@
 :root {
     --primary-font:  'Montserrat', sans-serif;
-    --bg-dark: #121212;
-    --text-color: #ffffffda;
-    --accent-color: #fd917d;
+    --bg-dark: #fff;
+    --text-color: #000;
+    --accent-color: #0076b6e3;
 }
 
 html {
@@ -56,13 +56,98 @@ ul {
 }
 
 .music-container {
-    width: 25rem;
-    border: 1px solid white;
-    height: 10rem;
+    width: 20rem;
     padding: 0.5rem 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.music-info {
+    width: 80%;
+    height: 3.75rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.5rem;
+
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    color: var(--text-color);
+    
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+}
+
+.music-controls {
+    width: 100%;
+    height: 5rem;
+
+    box-shadow: 
+    rgba(50, 50, 93, 0.25) 0px 15px 20px -8px,
+    rgba(0, 0, 0, 0.2) 0px 15px 20px -15px, 
+    rgba(10, 37, 64, 0.2) 0px -2px 6px 0px inset;
+    border-radius: 0.75rem;;
+
+    display: flex;
+    gap: 2rem;
+    padding: 0 1rem;
+    align-items: center;
+}
+
+.music-art img{
+    width: 4rem;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+
+    /* animation: 4s linear infinite spin; */
+}
+
+@keyframes spin {
+    from {
+      transform: translateY(-50%) rotate(0);
+    }
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 10rem;
+}
+
+.fas {
+    cursor: pointer;
+    transition: all 150ms ease;
+    color: var(--accent-color);
+}
+
+.fas:hover {
+    opacity: 0.85;
+    color: rgba(253, 124, 101, 0.712);
+}
+
+.previous,.next {
+    font-size: 0.9rem;
+}
+
+.play,.pause {
+    font-size: 1.3rem;
+}
+
+.play {
+    display: block;
+}
+.pause {
+    display: none;
 }
